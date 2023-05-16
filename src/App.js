@@ -1,12 +1,9 @@
-
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Navbar, Sidebar, Footer } from './components'
 
 function App() {
-  return (
-    <div className="App">
-     <h1>salam</h1>
-    </div>
-  );
+  return <h4>comfy sloth starter</h4>
 }
 
-export default App;
+export default App
