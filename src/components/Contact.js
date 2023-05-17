@@ -12,6 +12,7 @@ const Contact = () => {
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit neque nemo itaque totam magnam at dolor provident, deserunt dignissimos quibusdam unde, eos nisi culpa repellat!
           </p>
+          
         <form className="contact-form">
           <input type="email" 
           className="form-input" 
