@@ -31,7 +31,6 @@ export const ProductsProvider = ({ children }) => {
   }
 
   useEffect(()=>{
-    openSidebar()
   },[])
 
   return (
