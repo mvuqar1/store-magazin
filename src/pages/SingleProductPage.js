@@ -27,7 +27,7 @@ const SingleProductPage = () => {
   useEffect(()=>{
     fetchSingleProducts(`${url}${id}`)
   },[id])
-  console.log(product)
+  // console.log(product)
 
   useEffect(()=>{
     if(error){
@@ -64,7 +64,7 @@ const SingleProductPage = () => {
           back to product
         </Link>
         <div className="products-center">
-          <ProductImages/>
+          <ProductImages images={images}/>
           <section className="content">
             <h2>{name}</h2>
             <Stars/>
