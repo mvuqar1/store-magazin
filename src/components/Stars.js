@@ -1,51 +1,31 @@
-import React from 'react'
-import styled from 'styled-components'
-import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs'
-const Stars = ({stars,reviews}) => {
-  console.log(stars,reviews)
+import React from 'react';
+import styled from 'styled-components';
+import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
+
+const Stars = ({ stars, reviews }) => {
+  const renderStars = () => {
+    const starsArray = [];
+
+    for (let i = 1; i <= 5; i++) {
+      if (stars >= i) {
+        starsArray.push(<BsStarFill key={i} />);
+      } else if (stars >= i - 0.5) {
+        starsArray.push(<BsStarHalf key={i} />);
+      } else {
+        starsArray.push(<BsStar key={i} />);
+      }
+    }
+
+    return starsArray;
+  };
+
   return (
     <Wrapper>
-      <div className="stars"></div>
-      <span>
-        {stars>=1
-        ?(<BsStarFill/>)
-        :stars>=0.5
-        ?(<BsStarHalf/>)
-      :(<BsStar/>)}
-      </span>
-      <span>
-        {stars>=2
-        ?(<BsStarFill/>)
-        :stars>=1.5
-        ?(<BsStarHalf/>)
-      :(<BsStar/>)}
-      </span>
-      <span>
-        {stars>=3
-        ?(<BsStarFill/>)
-        :stars>=2.5
-        ?(<BsStarHalf/>)
-      :(<BsStar/>)}
-      </span>
-      <span>
-        {stars>=4
-        ?(<BsStarFill/>)
-        :stars>=3.5
-        ?(<BsStarHalf/>)
-      :(<BsStar/>)}
-      </span>
-      <span>
-        {stars===5
-        ?(<BsStarFill/>)
-        :stars>=4.5
-        ?(<BsStarHalf/>)
-      :(<BsStar/>)}
-      </span>
-      <p className='reviews'>{reviews}</p>
+      <div className="stars"><span>{renderStars()}</span></div>
+      <p className="reviews">{reviews} customer reviews</p>
     </Wrapper>
-  )
-}
-
+  );
+};
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
