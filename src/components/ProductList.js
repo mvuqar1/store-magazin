@@ -5,7 +5,6 @@ import ListView from './ListView'
 
 const ProductList = () => {
   const {filter_products:products}=useFilterContext()
-  console.log(products);
   return (
     <GridView products={products}>
       product list
