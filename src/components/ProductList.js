@@ -6,7 +6,7 @@ import ListView from './ListView'
 const ProductList = () => {
   const { filter_products: products, grid_view } = useFilterContext()
 
-  if (products.length < 1) {
+  if (!products || products.length < 1) {
     return (
       <h5 style={{ textTransform: "none" }}>
         Sorry,no products matched your search ...
