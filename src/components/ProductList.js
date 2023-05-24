@@ -4,7 +4,7 @@ import GridView from './GridView'
 import ListView from './ListView'
 
 const ProductList = () => {
-  const { filter_products: products, grid_view } = useFilterContext()
+  const { filtered_products: products, grid_view } = useFilterContext()
 
   if (!products || products.length < 1) {
     return (

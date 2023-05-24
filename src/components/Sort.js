@@ -4,6 +4,7 @@ import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
 const Sort = () => {
   const {filtered_products:products,grid_view}=useFilterContext()
+  console.log(products)
   return (
     <Wrapper>
       <div className="btn-container">
@@ -13,10 +14,11 @@ const Sort = () => {
         <button type='button'  className={`${!grid_view ? "active" : null}`}>
           <BsList/>
         </button>
+      </div>
         <p>{products.length} products found</p>
         <hr/>
         <form>
-          <label htmlFor='sort'>sort</label>
+          <label htmlFor='sort'>sort by</label>
           <select name="sort" id="sort" className='sort-input'>
             <option value="price-lowest">price ( lowest )</option>
             <option value="price-higest">price ( higest )</option>
@@ -25,8 +27,6 @@ const Sort = () => {
           </select>
 
         </form>
-
-      </div>
     </Wrapper>
   )
 }
