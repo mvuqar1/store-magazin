@@ -106,11 +106,18 @@ const filter_reducer = (state, action) => {
     }
 
     if(category !== "all"){
-      tempProducts = tempProducts.filter((product)=>product.category === category)
+      tempProducts = tempProducts.filter((product)=>(
+        product.category === category))
     }
     if(company !== "all"){
-      tempProducts = tempProducts.filter((product)=>product.company === company)
+      tempProducts = tempProducts.filter((product)=>(
+        product.company === company))
     }
+    if(color !== "all"){
+      tempProducts = tempProducts.filter((product)=>(
+        product.color === color))
+    }
+  
 
 
     return{
