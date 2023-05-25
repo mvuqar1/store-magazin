@@ -12,6 +12,7 @@ const Filters = () => {
       company,
       color,
       min_price,
+      price,
       max_price,
       shipping,
     },
@@ -58,7 +59,6 @@ const Filters = () => {
             </div>
           </div>
 
-
           <div className="form-control">
             <h5>company</h5>
             <select
@@ -79,39 +79,51 @@ const Filters = () => {
 
           <div className="form-control">
             <h5>colors</h5>
-            
-          <div className='colors'>
-            {colors.map((col, index) => {
-              if(col==="all"){
-                return(
+
+            <div className='colors'>
+              {colors.map((col, index) => {
+                if (col === "all") {
+                  return (
+                    <button
+                      key={index}
+                      name='color'
+                      data-color="all"
+                      onClick={updateFilters}
+                      className={`${color === "all" ? "all-btn active" : "all-btn"}`}
+                    >
+                      all
+                    </button>
+                  )
+                }
+                return (
                   <button
-                  name='color'
-                  data-color="all"
-                  onClick={updateFilters}
-                  className={`${color=== "all" ? "all-btn active" : "all-btn"}`}
+                    key={index}
+                    name="color"
+                    style={{ backgroundColor: col }}
+                    className={`${color === col ? "color-btn active" : "color-btn"}`}
+                    data-color={col}
+                    onClick={updateFilters}
                   >
-                    all
+                    {color === col ? <FaCheck /> : null}
                   </button>
                 )
-              }
-              return (
-              <button 
-              key={index} 
-              name="color" 
-              style={{backgroundColor:col}}
-              className={`${color=== col ? "color-btn active" : "color-btn" }`}
-              data-color={col}
-              onClick={updateFilters}
-              >
-                {color === col ? <FaCheck/> : null}
+              })}
+            </div>
 
 
-              </button>
-              )
-            })}
           </div>
 
-
+          <div className="form-control">
+            <h5>price</h5>
+            <p className="price">{formatPrice(price)}</p>
+            <input 
+            type="range" 
+            name="price" 
+            onChange={updateFilters}
+            min={min_price}
+            max={max_price}
+            value={price}
+            />
           </div>
         </form>
       </div>
