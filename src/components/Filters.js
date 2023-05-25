@@ -5,76 +5,90 @@ import { getUniqueValues, formatPrice } from '../utils/helpers'
 import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
-  const{
+  const {
     filters: {
-      text, 
-      category, 
-      company, 
-      color, 
-      min_price, 
-      max_price, 
+      text,
+      category,
+      company,
+      color,
+      min_price,
+      max_price,
       shipping,
     },
     updateFilters,
     clearFilters,
     all_products,
 
-  }=useFilterContext()
-  
+  } = useFilterContext()
 
-  const categories=getUniqueValues(all_products,"category")
-  const companies=getUniqueValues(all_products,"company")
-  const colors=getUniqueValues(all_products,"colors")
 
-  
-  return( 
-  <Wrapper>
-    <div className="content">
-      <form onSubmit={(e)=>e.preventDefault()}>
-        <div className="form-control">
-          <input 
-          type="text" 
-          name='text' 
-          placeholder='search' 
-          className='search-input'
-          value={text}
-          onChange={updateFilters}
-          />
-        </div>
-        <div className="form-control">
-          <h5>category</h5>
-          <div>
-            {categories.map((categor,index)=>{
-              return <button key={index} 
-              onClick={updateFilters}
-              name='category'
-              type='category'
-              className={`${category ===categor.toLowerCase()? "active":null}`}
-              >
-                {categor}
-              </button>
-            })}
+  const categories = getUniqueValues(all_products, "category")
+  const companies = getUniqueValues(all_products, "company")
+  const colors = getUniqueValues(all_products, "colors")
+
+
+  return (
+    <Wrapper>
+      <div className="content">
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="form-control">
+            <input
+              type="text"
+              name='text'
+              placeholder='search'
+              className='search-input'
+              value={text}
+              onChange={updateFilters}
+            />
           </div>
-          <h5>company</h5>
-          {/* <div>
-            {companies.map((comp,index)=>{
-              return <button key={index}>
-                {comp}
-              </button>
-            })}
-          </div> */}
+
+          <div className="form-control">
+            <h5>category</h5>
+            <div>
+              {categories.map((categor, index) => {
+                return <button key={index}
+                  onClick={updateFilters}
+                  name='category'
+                  type='category'
+                  className={`${category === categor.toLowerCase() ? "active" : null}`}
+                >
+                  {categor}
+                </button>
+              })}
+            </div>
+          </div>
+
+
+          <div className="form-control">
+            <h5>company</h5>
+            <select
+              name="company"
+              value={company}
+              onChange={updateFilters}
+              className='company'
+            >
+              {companies.map((comp, index) => {
+                return (
+                  <option key={index} value={comp}>
+                    {comp}
+                  </option>
+                )
+              })}
+            </select>
+          </div>
+
           <h5>colors</h5>
           <div>
-            {colors.map((c,index)=>{
+            {colors.map((c, index) => {
               return <button key={index}>
                 <style></style>
               </button>
             })}
-          </div>
 
-        </div>
-      </form>
-    </div>
+
+          </div>
+        </form>
+      </div>
     </Wrapper>
   )
 }
