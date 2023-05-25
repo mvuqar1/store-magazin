@@ -41,6 +41,38 @@ const Filters = () => {
           onChange={updateFilters}
           />
         </div>
+        <div className="form-control">
+          <h5>category</h5>
+          <div>
+            {categories.map((categor,index)=>{
+              return <button key={index} 
+              onClick={updateFilters}
+              name='category'
+              type='category'
+              className={`${category ===categor.toLowerCase()? "active":null}`}
+              >
+                {categor}
+              </button>
+            })}
+          </div>
+          <h5>company</h5>
+          {/* <div>
+            {companies.map((comp,index)=>{
+              return <button key={index}>
+                {comp}
+              </button>
+            })}
+          </div> */}
+          <h5>colors</h5>
+          <div>
+            {colors.map((c,index)=>{
+              return <button key={index}>
+                <style></style>
+              </button>
+            })}
+          </div>
+
+        </div>
       </form>
     </div>
     </Wrapper>

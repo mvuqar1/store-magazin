@@ -4,36 +4,41 @@ import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
 const Sort = () => {
   const {
-    filtered_products:products,
+    filtered_products: products,
     grid_view,
     setGridView,
     setListView,
     sort,
     updateSort
-  }=useFilterContext()
+  } = useFilterContext()
 
   return (
     <Wrapper>
       <div className="btn-container">
         <button type='button' className={`${grid_view ? "active" : null}`} onClick={setGridView}>
-          <BsFillGridFill/>
+          <BsFillGridFill />
         </button>
-        <button type='button'  className={`${!grid_view ? "active" : null}`} onClick={setListView}>
-          <BsList/>
+        <button type='button' className={`${!grid_view ? "active" : null}`} onClick={setListView}>
+          <BsList />
         </button>
       </div>
-        <p>{products.length} products found</p>
-        <hr/>
-        <form>
-          <label htmlFor='sort'>sort by</label>
-          <select name="sort" id="sort" className='sort-input' value={sort} onChange={updateSort}>
-            <option value="price-lowest">price ( lowest )</option>
-            <option value="price-higest">price ( higest )</option>
-            <option value="name-a">name ( a - z )</option>
-            <option value="name-z">name ( z - a )</option>
-          </select>
+      <p>{products.length} products found</p>
+      <hr />
+      <form>
+        <label htmlFor='sort'>sort by</label>
+        <select
+          name="sort"
+          id="sort"
+          className='sort-input'
+          value={sort}
+          onChange={updateSort}>
+          <option value="price-lowest">price ( lowest )</option>
+          <option value="price-higest">price ( higest )</option>
+          <option value="name-a">name ( a - z )</option>
+          <option value="name-z">name ( z - a )</option>
+        </select>
 
-        </form>
+      </form>
     </Wrapper>
   )
 }
