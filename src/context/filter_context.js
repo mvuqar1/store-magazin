@@ -45,7 +45,7 @@ export const FilterProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: FILTER_PRODUCTS })
     dispatch({ type: SORT_PRODUCTS })
-    console.log("first")
+    console.log("use Effect")
 
   }, [products, state.sort, state.filters])
 
@@ -64,17 +64,17 @@ export const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     let name = e.target.name
     let value = e.target.value
-    console.log(e.target.textContent)
+
     if(name === "category"){
       value=e.target.textContent
     }
     if(name === "color"){
       value=e.target.dataset.color
     }
-    if(name==="price"){
+    if(name === "price"){
       value=Number(value)
     }
-    if(name==="shipping"){
+    if(name === "shipping"){
       value=e.target.checked
     }
 
