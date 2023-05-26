@@ -96,6 +96,7 @@ const filter_reducer = (state, action) => {
     const {all_products}=state
     const{text,company,category,color,price,shipping}=state.filters
     let tempProducts=[...all_products]
+    console.log(tempProducts)
 
     if(text){
       tempProducts=tempProducts.filter((product)=>{
@@ -104,7 +105,6 @@ const filter_reducer = (state, action) => {
         return product.name.toLowerCase().includes(text.toLowerCase());
       })
     }
-
     if(category !== "all"){
       tempProducts = tempProducts.filter((product)=>(
         product.category === category))
@@ -124,15 +124,12 @@ const filter_reducer = (state, action) => {
     tempProducts=tempProducts.filter((product)=>{
       return product.price<=price
     })
-
     if(shipping){
       tempProducts=tempProducts.filter((product)=>{
         return product.shipping === true
       })
     }
   
-
-
     return{
       ...state,
       filtered_products:tempProducts
