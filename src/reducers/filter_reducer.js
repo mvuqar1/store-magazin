@@ -115,7 +115,20 @@ const filter_reducer = (state, action) => {
     }
     if(color !== "all"){
       tempProducts = tempProducts.filter((product)=>{
-        return product.colors.includes(color)})
+        return product.colors.find((col) => col === color)})
+    }
+    // if(color !== "all"){
+    //   tempProducts = tempProducts.filter((product)=>{
+    //     return product.colors.includes(color)})
+    // }
+    tempProducts=tempProducts.filter((product)=>{
+      return product.price<=price
+    })
+
+    if(shipping){
+      tempProducts=tempProducts.filter((product)=>{
+        return product.shipping === true
+      })
     }
   
 
