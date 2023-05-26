@@ -36,9 +36,13 @@ export const CartProvider = ({ children }) => {
     dispatch({type:ADD_TO_CART,payload:{id,color,amount,product}})
   }
 
-const removeItem=(id) => {}
+const removeItem=(id) => {
+  dispatch({type:REMOVE_CART_ITEM,payload:id})
+}
 const toggleAmount=(id,value) => {}
-const clearCart=(id) => {}
+const clearCart=(id) => {
+  dispatch({type:CLEAR_CART})
+}
 
 
 
