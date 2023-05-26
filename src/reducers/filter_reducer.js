@@ -96,7 +96,6 @@ const filter_reducer = (state, action) => {
     const {all_products}=state
     const{text,company,category,color,price,shipping}=state.filters
     let tempProducts=[...all_products]
-    console.log(tempProducts)
 
     if(text){
       tempProducts=tempProducts.filter((product)=>{
@@ -149,6 +148,7 @@ const filter_reducer = (state, action) => {
       }
     }
   }
+  
   throw new Error(`No Matching "${action.type}" - action type`)
 }
 
