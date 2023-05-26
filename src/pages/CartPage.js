@@ -20,7 +20,7 @@ const CartPage = () => {
   }
   return (
     <Wrapper>
-      <PageHero/>
+      <PageHero title="cart"/>
       <CartContent/>
     </Wrapper>
   )
