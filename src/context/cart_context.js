@@ -40,7 +40,9 @@ const removeItem=(id) => {
   dispatch({type:REMOVE_CART_ITEM,payload:id})
 }
 const toggleAmount=(id,value) => {}
-const clearCart=(id) => {
+
+const clearCart=() => {
+  console.log("clear")
   dispatch({type:CLEAR_CART})
 }
 
@@ -52,7 +54,7 @@ useEffect(() => {
 
 
   return (
-    <CartContext.Provider value={{...state,addToCart,removeItem,toggleAmount}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{...state,addToCart,removeItem,toggleAmount,clearCart}}>{children}</CartContext.Provider>
   )
 }
 // make sure use
