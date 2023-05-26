@@ -48,7 +48,7 @@ useEffect(() => {
 
 
   return (
-    <CartContext.Provider value={{...state,addToCart}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{...state,addToCart,removeItem,toggleAmount}}>{children}</CartContext.Provider>
   )
 }
 // make sure use
