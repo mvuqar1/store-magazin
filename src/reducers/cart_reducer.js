@@ -77,11 +77,12 @@ const cart_reducer = (state, action) => {
   }
   if (action.type === COUNT_CART_TOTALS) {
     const { total_item, total_amount } = state.cart.reduce((total, cartItem) => {
-      console.log(state)
-      console.log(cartItem)
       const { amount, price } = cartItem
       total.total_item += amount
       total.total_amount += price * amount
+      console.log(total.total_item)
+      console.log(total.total_amount)
+      console.log(total)
       return total
     }, {
       total_item: 0,
