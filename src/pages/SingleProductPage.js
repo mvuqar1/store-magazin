@@ -26,7 +26,7 @@ const SingleProductPage = () => {
 
   useEffect(()=>{
     fetchSingleProducts(`${url}${id}`)
-  },[id])
+  },[fetchSingleProducts, id])
   // console.log(product)
 
   useEffect(()=>{
@@ -35,7 +35,7 @@ const SingleProductPage = () => {
         history.push("/")  
       }, 3000);
     }
-  },[error])
+  },[error, history])
 
   if(loading){
     return<Loading/>

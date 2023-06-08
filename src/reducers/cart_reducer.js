@@ -49,6 +49,7 @@ const cart_reducer = (state, action) => {
   }
   if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
     const { id, value } = action.payload
+    // eslint-disable-next-line array-callback-return
     const tempCart = state.cart.map((item) => {
       if (item.id === id) {
 
@@ -70,10 +71,10 @@ const cart_reducer = (state, action) => {
         }
 
       } else {
-        return item
+        return item;
       }
     })
-    return { ...state, cart: tempCart }
+    return { ...state, cart: tempCart };
   }
   if (action.type === COUNT_CART_TOTALS) {
     const { total_item, total_amount } = state.cart.reduce((total, cartItem) => {
